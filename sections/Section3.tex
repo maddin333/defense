@@ -1,0 +1,55 @@
+
+    \begin{frame}[fragile] {Manuelle Erkennung}
+        \textbf{Probleme bei komplexen Strukturen:}
+		\begin{lstlisting}
+            <?php
+            switch(1) {
+              default:
+                echo("Never evaluated");
+                break;
+              default:
+                echo("Evaluated")
+                break;
+            }
+            ?>
+        \end{lstlisting}
+    \end{frame}
+    
+    \begin{frame} {Automatisierte Erkennung}
+        \textbf{Vorteile:}
+        \begin{itemize}
+            \item Erkennung komplexen Codes
+            \item Beliebige Projektgröße
+            \item Abschätzung über den Aufwand möglich
+            \item Bericht als Arbeitsplan
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame} {Versionsverwaltung}
+        \textbf{Vorteile:}
+        \begin{itemize}
+            \item Protokollierte Änderungen
+            \item Historische Versionen zurückverfolgbar
+            \item Einfache Bearbeitung durch mehrere Personen
+            \item Wartung alter Versionen weiter möglich
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame} {Historischer Code}
+        \begin{columns}[T,onlytextwidth]
+            \column{0.5\textwidth}
+                \textbf{Lokale Umgebungen}
+                \begin{itemize}
+                    \item Unabhängige Installation
+                    \item keine Abhängigkeiten
+                    \item keine Versionsverwaltung
+                \end{itemize}
+            \column{0.5\textwidth}
+                \textbf{Docker-Integration} \nocite{anderson_docker_2015}
+                \begin{itemize}
+                    \item Zentrale Konfiguration
+                    \item komplexes Ökosystem
+                    \item Versionsverwaltung per \emph{git}
+                \end{itemize}
+          \end{columns}
+    \end{frame}

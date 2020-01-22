@@ -1,0 +1,79 @@
+\begin{frame} {Anforderungsanalyse}
+    \begin{table}
+        \centering
+        \caption{Anteil zu migrierender Codeteile an der gesamten Codebasis}
+        \label{tab:migrationPercentage}
+        \begin{tabular}{llll}
+                            & Gesamt & Betroffen & Anteil   \\
+        \textbf{Dateien}    & 5732   & 690       & 12,04\%  \\
+        \textbf{Codezeilen} & 596198 & 1431      & 0,24\%  
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame} {Anforderungsanalyse}
+    \begin{figure}
+        \begin{tikzpicture}
+            \pie [rotate = 0, sum=1425]
+            {722/mysql,
+             547/Implizite Konstruktoren, 
+             86/func\_get\_args,
+             21/foreach,
+             20/Variablenzugriff,
+             35/Andere}
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame} {Entwicklung von Werkzeugen zur Migration}
+    \begin{itemize}
+        \item Weiterentwicklung von \emph{php7mar}
+        \item Einführung von Docker
+        \item Konfiguration von \emph{XDebug}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile] {Migration der Software}
+    \begin{lstlisting}[language=php]
+    //veralteter Aufruf von mysql
+    $result = mysql_query($query);
+    if(!$result) $output .= mysql_error();
+    \end{lstlisting}
+    \begin{lstlisting}
+    //Ersatz durch mysqli
+    $result = mysqli_query($db_link, $query);
+    if(!$result) $output .= mysqli_error($db_link);
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile] {Migration der Software}
+    \begin{lstlisting}[language=php]
+    <?php
+    class order {
+      function __construct($order_id) {
+        $this->order($order_id);
+      }
+
+      function order($order_id) {
+        print($order_id);
+      }
+    }
+    ?>
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Verifikation}
+    \begin{itemize}
+        \item Manuelles Testen
+        \item Monitoring mittels \emph{New Relic}
+        \item keine Unit Tests
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Support der alten Umgebung}
+    \begin{itemize}
+        \item Für hauseigene Software weniger relevant
+        \item Parallelbetrieb während Übergangszeit
+        \item Historischer Code weiter in Versionsverwaltung
+    \end{itemize}
+\end{frame}

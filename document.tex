@@ -1,50 +1,57 @@
-\documentclass[11pt]{beamer}
+\documentclass[11pt, xcolor=dvipsnames]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
 \usetheme{metropolis}
 \metroset{block=fill, progressbar=head}
+\lstset{
+	language        = php,
+	basicstyle      = \small\ttfamily,
+	keywordstyle    = \color{RoyalBlue},
+	stringstyle     = \color{Black},
+	identifierstyle = \color{Green},
+	commentstyle    = \color{Gray},
+	emph            =[1]{php},
+	emphstyle       =[1]\color{Black},
+	emph            =[2]{if,and,or,else},
+	emphstyle       =[2]\color{RoyalBlue},
+	showstringspaces=false}
 
 \author{Martin Duschek}
-\title{JS-Cryptomining als Alternative zu Werbung}
+\title{Evolution von Code bei Major-Releases von Programmiersprachen}
+\subtitle{am Beispiel der Migration zu PHP7}
 \institute{HTWK Leipzig}
+
 \begin{document}
-	\maketitle
+	\include{sections/Section0}
+
+	\section{Grundlagen}
+	\include{sections/Section1}
 	
-	\begin{frame}{Traditionelle Monetarisierung}
-		\centering
-		\includegraphics[width=270px]{ad.png}
-	\end{frame}
-
-	\begin{frame}{Traditionelle Monetarisierung}
-		\centering
-		\includegraphics[width=270px]{paywall.PNG}
-	\end{frame}
+	\section{Änderungen der PHP-API}
+	\include{sections/Section2}
 	
-	\begin{frame} {Traditionelle Monetarisierung}
-	\begin{itemize}
-		\item[+] kostengünstig umsetzbar
-		\item[+] durch Werbenetzwerke realisierbar
-		\item[--] niedrige Conversion
-		\item[--] immer mehr AdBlocker
-		\item[--] Sicherheitsrisiko für User
-	\end{itemize}
-	\end{frame}
+	\section{Geeignete Mittel}
+	\include{sections/Section3}
 
-	\begin{frame} {Monetarisierung durch Cryptomining}
-		\centering
-		\includegraphics[width=270px]{Zeichnung1.pdf}
-	\end{frame}
+	\section{Migration}
+	\include{sections/Section4}	
 
-	\begin{frame} {Monetarisierung durch Cryptomining}
-	\begin{itemize}
-		\item[+] kostengünstig umsetzbar
-		\item[+] durch Werbenetzwerke realisierbar
-		\item[+] keine Störung der UX
-		\item[--] Energieverbrauch auf User-Seite
-	\end{itemize}
-\end{frame}
+	\section{Auswertung}
+	\include{sections/Section5}
+
+	\section{Ausblick}
+	\include{sections/Section6}
+
+	\begin{frame}[allowframebreaks]{Referenzen}
+		\bibliography{Bibliography}
+		\bibliographystyle{alpha}	  
+	  \end{frame}
 \end{document}

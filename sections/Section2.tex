@@ -1,14 +1,23 @@
-\begin{frame} {Arten von Änderungen}
-	\begin{itemize}
-		\item Abwärtsinkompatible Änderungen
-		\item Veraltete Funktionen
-		\item Geänderte Funktionen
-		\item Neue Funktionen
-		\item Entfernte Erweiterungen
-	\end{itemize}
-	\end{frame}
+%\begin{frame} {Arten von Änderungen}
+%	\begin{itemize}
+%		\item Abwärtsinkompatible Änderungen
+%		\item Veraltete Funktionen
+%		\item Geänderte Funktionen
+%		\item Neue Funktionen
+%		\item Entfernte Erweiterungen
+%	\end{itemize}
+%	\end{frame}
 
-	\begin{frame} {Abwärtsinkompatible Änderungen}
+    
+\begin{frame}{Ziele}
+    \begin{itemize}
+        \item Verständlichkeit des Codes
+        \item Erhöhung der Sicherheit
+        \item Höhere Ausführungsgeschwindigkeit
+    \end{itemize}  
+\end{frame}
+
+	\begin{frame} {Verständlichkeit des Codes}
 		\textbf{Indirekter Variablenzugriff} \nocite{php_group_php:_nodate-1} \\
 		Ausdruck: \$foo$\rightarrow$\$bar['baz']
 		\begin{exampleblock}{Interpretation in PHP 5}
@@ -19,47 +28,39 @@
 		\end{exampleblock}{}
 	\end{frame}
 
-	\begin{frame}[fragile]{Geänderte Funktionen}
-        \textbf{Implizite Konstruktoren} \nocite{morrison_php:_2014}\\
-        \begin{lstlisting}
-        <?php
-        class foo {
-          function foo($a) {
-            echo("Instance Created");
-          }
-        }
-        ?>
-        \end{lstlisting}
-    \end{frame}
+%	\begin{frame}[fragile]{Geänderte Funktionen}
+ %       \textbf{Implizite Konstruktoren} \nocite{morrison_php:_2014}\\
+ %       \begin{lstlisting}
+ %       <?php
+ %       class foo {
+ %         function foo($a) {
+ %           echo("Instance Created");
+ %         }
+ %       }
+ %       ?>
+ %       \end{lstlisting}
+ %   \end{frame}
     
-    \begin{frame}[fragile]{Neue Funktionen}
-        \textbf{Anonyme Klassen}\\
-        \begin{lstlisting}
-        <?php
-        $foo = new class {
-          public function bar() {
-            echo("Hello World");
-          }
-        }
+%    \begin{frame}[fragile]{Neue Funktionen}
+%        \textbf{Anonyme Klassen}\\
+%        \begin{lstlisting}
+%        <?php
+%        $foo = new class {
+%          public function bar() {
+%            echo("Hello World");
+%          }
+%        }
+%
+%        $foo->bar();
+%        ?>
+%        \end{lstlisting}
+%    \end{frame}
 
-        $foo->bar();
-        ?>
-        \end{lstlisting}
-    \end{frame}
-
-    \begin{frame}[fragile]{Entfernte Erweiterungen}
+    \begin{frame}[fragile]{Sicherheit}
         \textbf{mysql} \nocite{oracle_mysql_nodate}\\
         \begin{itemize}
             \item keine \alert{Prepared Statements}
             \item Weiterentwicklung aufgegeben
             \item modernere Alternativen
-        \end{itemize}  
-    \end{frame}
-
-    \begin{frame}{Ziele}
-        \begin{itemize}
-            \item Erhöhung der Sicherheit
-            \item Verständlichkeit des Codes
-            \item Höhere Ausführungsgeschwindigkeit
         \end{itemize}  
     \end{frame}
